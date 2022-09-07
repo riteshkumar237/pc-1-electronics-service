@@ -39,6 +39,13 @@ public class ElectronicListService {
     public static boolean removeElectronicsItemFromList(List<String> itemList, String removeItem) {
         boolean flag = false;
 
+        Iterator<String> stringIterator = itemList.iterator();
+        while (stringIterator.hasNext()) {
+            String item = stringIterator.next();
+            stringIterator.remove();
+            flag = true;
+        }
+
 
         return flag;
     }
