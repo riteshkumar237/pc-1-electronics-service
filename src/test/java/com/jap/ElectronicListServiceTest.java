@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ElectronicListServiceTest {
     ElectronicListService electronicListService;
@@ -17,40 +16,43 @@ public class ElectronicListServiceTest {
 
 
     @Before
-    public void setUp(){
+    public void setUp() {
         electronicListService = new ElectronicListService();
         list = new ArrayList();
         list.add("computer");
         list.add("Refrigerator");
         list.add("smartphone");
         list.add("printer");
-       // list = Arrays.asList("computer", "Refrigerator", "smartphone", "printer");
+        // list = Arrays.asList("computer", "Refrigerator", "smartphone", "printer");
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         electronicListService = null;
         list = null;
     }
+
     @Test
     public void givenUniqueNamesAsInputParameterThenReturnListWithItems() {
 
-        final List<String> electronicsItems = electronicListService.addElectronicsItemsToList("computer,Refrigerator,smartphone,printer");
-            assertEquals(list,electronicsItems);
+        final List<String> electronicsItems = ElectronicListService.addElectronicsItemsToList("computer,Refrigerator,smartphone,printer");
+        assertEquals(list, electronicsItems);
     }
+
     @Test
     public void givenDuplicateNamesAsInputParameterThenReturnListWithUniqueItems() {
 
-        final List<String> electronicsItems = electronicListService.addElectronicsItemsToList("computer,Refrigerator,smartphone,printer,Refrigerator");
+        final List<String> electronicsItems = ElectronicListService.addElectronicsItemsToList("computer,Refrigerator,smartphone,printer,Refrigerator");
         list = Arrays.asList("computer", "Refrigerator", "smartphone", "printer");
-        assertEquals(list,electronicsItems);
+        assertEquals(list, electronicsItems);
     }
+
     @Test
     public void givenItemsAsInputParameterThenReturnItemIndexValue() {
         list = Arrays.asList("computer", "Refrigerator", "smartphone", "printer");
-        final int itemIndex = electronicListService.searchElectronicItemInList(list,"Refrigerator");
+        final int itemIndex = ElectronicListService.searchElectronicItemInList(list, "Refrigerator");
 
-        assertEquals(1,itemIndex);
+        assertEquals(1, itemIndex);
     }
 
 
