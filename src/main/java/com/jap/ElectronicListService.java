@@ -1,6 +1,7 @@
 package com.jap;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -21,6 +22,14 @@ public class ElectronicListService {
 
     //search the electronic item from the list and return the index position
     public static int searchElectronicItemInList(List<String> itemList, String searchItem) {
+        Iterator<String> stringIterator = itemList.iterator();
+        while (stringIterator.hasNext()) {
+            String item = stringIterator.next();
+            if (item.equals(searchItem)) {
+                return 1;
+
+            }
+        }
 
 
         return -1;
