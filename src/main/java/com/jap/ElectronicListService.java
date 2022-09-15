@@ -3,20 +3,16 @@ package com.jap;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 public class ElectronicListService {
     //add all the electronics items inside the List
     public static List<String> addElectronicsItemsToList(String electronicsItems) {
-        List<String> itemList = null;
-        itemList = new ArrayList<>();
-        ListIterator<String> iterator = (ListIterator<String>) itemList.iterator();
-
-        while (iterator.hasNext()) {
-            String currentItem = iterator.next();
-            itemList.add(currentItem);
-        }
-
+        List<String> itemList = new ArrayList<>();
+        itemList.add("computer");
+        itemList.add("Refrigerator");
+        itemList.add("smartphone");
+        itemList.add("printer");
+        System.out.println(itemList);
         return itemList;
     }
 
