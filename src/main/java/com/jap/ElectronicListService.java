@@ -8,11 +8,14 @@ public class ElectronicListService {
     //add all the electronics items inside the List
     public static List<String> addElectronicsItemsToList(String electronicsItems) {
         List<String> itemList = new ArrayList<>();
-        itemList.add("computer");
-        itemList.add("Refrigerator");
-        itemList.add("smartphone");
-        itemList.add("printer");
-        System.out.println(itemList);
+        String[] arr = electronicsItems.split(",");
+        for (String var : arr) {
+            if (!itemList.contains(var)) {
+                itemList.add(var);
+            }
+
+        }
+
         return itemList;
     }
 
